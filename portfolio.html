@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipesh Gupta | Portfolio</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        /* Header Styles */
+        #header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header .site-name a {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        #header .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #header .main-nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        #header .main-nav ul li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #header .main-nav ul li a:hover {
+            background-color: #f0f0f0;
+        }
+
+
+        /* Masthead (Profile Banner) Styles */
+        #masthead {
+            background-color: #8c1515; /* Stanford Cardinal Red */
+            color: #fff;
+            padding: 40px 0;
+            border-bottom: 5px solid #b1040e;
+        }
+
+        #masthead .container {
+            display: flex;
+            align-items: center;
+        }
+
+        #masthead .image-holder img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+        }
+
+        #masthead .nameAndTitle {
+            margin-left: 40px;
+        }
+
+        #masthead h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+
+        #masthead h2 {
+            margin: 5px 0 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            border-bottom: 1px solid #c83737;
+            padding-bottom: 10px;
+        }
+
+        #masthead h3 {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Tabbed Layout Styles */
+        #tabbedLayoutContainer {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Hide Radio Buttons */
+        #tabbedLayoutContainer input[type="radio"] {
+            display: none;
+        }
+
+        /* Style Labels as Tabs */
+        #tabbedLayoutContainer label {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: #e9e9e9;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+        }
+
+        #tabbedLayoutContainer label:hover {
+            background: #ddd;
+        }
+
+        /* Hide Tab Content by Default */
+        .tab-pane {
+            display: none;
+            background: transparent;
+            padding: 20px 0;
+        }
+
+        /* Show Active Tab Content */
+        #tab1:checked ~ .tab-content-wrapper #bio-content,
+        #tab2:checked ~ .tab-content-wrapper #projects-content,
+        #tab3:checked ~ .tab-content-wrapper #publications-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Style Active Tab */
+        #tabbedLayoutContainer input[type="radio"]:checked + label {
+            background: #fff;
+            border-color: #ccc;
+            border-bottom: 1px solid #fff;
+        }
+
+        /* Main Content and Sidebar Layout */
+        .main-column {
+            flex: 3; /* Takes 3/4 of the space */
+        }
+
+        .side-bar {
+            flex: 1; /* Takes 1/4 of the space */
+        }
+
+        .content-section {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .content-section h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        .content-section hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: -10px 0 20px;
+        }
+
+        /* Section-specific lists */
+        .section-listing {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .section-listing li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-listing li:last-child {
+            border-bottom: none;
+        }
+
+        .section-listing a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .section-listing a:hover {
+            text-decoration: underline;
+        }
+
+        /* Project and Publication Specific Styles */
+        .project-item {
+            margin-bottom: 25px;
+        }
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+        .project-details {
+            font-style: italic;
+            color: #666;
+            margin-top: -10px;
+        }
+        .publication-list cite {
+            display: block;
+        }
+        .publication-list .title {
+            font-weight: bold;
+            display: block;
+        }
+        .publication-list .authors {
+            display: block;
+            color: #555;
+            margin: 4px 0;
+        }
+        .publication-list .details {
+            font-style: italic;
+            color: #777;
+        }
+
+        /* Contact Info Styles */
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        #footerContent {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 992px) {
+            .container, #tabbedLayoutContainer {
+                width: 95%;
+            }
+            #masthead .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            #masthead .nameAndTitle {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            #header .container {
+                flex-direction: column;
+            }
+            #header .main-nav {
+                margin-top: 10px;
+            }
+            .tab-content-wrapper > .tab-pane {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+       
+
+        <main id="bodyContent">
+            <section id="masthead">
+                <div class="container">
+                    <div class="image-holder">
+                        <img src="me.jpg" alt="Dipesh Gupta">
+                    </div>
+                    <div class="nameAndTitle">
+                        <h1>Dipesh Gupta</h1>
+                        <h2>B.S. Computer Science & Data Analytics — Student · Appistry Coordinator</h2>
+                        <h3>IIT Patna</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tabbedLayoutContainer">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">Bio</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">Projects</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">Publications</label>
+
+                <div class="tab-content-wrapper">
+                    <div id="bio-content" class="tab-pane">
+                        <div class="main-column">
+                            <div class="content-section">
+                                <h3>Bio</h3>
+                                <hr/>
+                                <p>I build practical systems: realtime chatbots, RAG-enabled assistants, campus apps, and small cross-device sync tools. I enjoy applying ML and full-stack engineering to solve straightforward problems.</p>
+                                <p>As a Computer Science & Data Analytics student at IIT Patna, I focus on creating solutions that bridge the gap between theoretical concepts and real-world applications. My work spans from AI-powered legal assistants to mental health support systems, always with an emphasis on user-centered design and practical implementation.</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>Research Interests</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    <li>Retrieval-Augmented Generation (RAG) systems and document embeddings</li>
+                                    <li>Real-time collaboration & syncing for lightweight apps</li>
+                                    <li>Human-centered AI for support & productivity</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>Skills & Technologies</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    <li>Programming Languages: Python, Node.js, JavaScript</li>
+                                    <li>Frontend: React, React Native, EJS</li>
+                                    <li>Backend: FastAPI, Express</li>
+                                    <li>Databases & Tools: MongoDB, FAISS, Supabase</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>Awards & Activities</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    <li>Coordinator — Appistry (App Development Club)</li>
+                                    <li>3rd Place — CodeQuest Coding Competition</li>
+                                    
+                                    <li>Mentor — Student projects: advising on RAG, React Native, and deployment topics</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="side-bar">
+                            <div class="content-section contact-info">
+                                <h3>Contact</h3>
+                                <hr/>
+                                <p><strong>Email:</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
+                            </div>
+                            
+                            <div class="content-section links">
+                                <h3>Links</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    <li><a href="https://drive.google.com/file/d/1wFZxxkjTF9tqO8Rc2tVKcDGmcan_kmjb/view?usp=sharing" target="_blank">Download Resume</a></li>
+                                    <li><a href="https://www.linkedin.com/in/dipesh-gupta-2960452b2/" target="_blank">LinkedIn Profile</a></li>
+                                    <li><a href="https://github.com/dipeshgupta07" target="_blank">GitHub Profile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="projects-content" class="tab-pane">
+                        <div class="main-column">
+                            <div class="content-section">
+                                <h3>Selected Projects</h3>
+                                <hr/>
+                                <div class="project-item">
+                                    <h4>AI Legal Assistant</h4>
+                                    <p class="project-details"><em>Tech Stack: FastAPI backend · Groq SDK · Supabase chat history · PDF drafting</em></p>
+                                    <p>Forms-driven mobile app + backend that drafts legal filings as downloadable PDFs. The system provides an intuitive interface for users to input case details and automatically generates properly formatted legal documents, streamlining the legal documentation process.</p>
+                                </div>
+                                <div class="project-item">
+                                    <h4>Mental Health Chatbot (Realtime)</h4>
+                                    <p class="project-details"><em>Tech Stack: Node.js · Socket.IO · EJS · MongoDB</em></p>
+                                    <p>A supportive conversational bot storing sessions and offering resources. Built with real-time communication capabilities to provide immediate support and maintain conversation history for continuity in mental health assistance.</p>
+                                </div>
+                                <div class="project-item">
+                                    <h4>POS App with Sync</h4>
+                                    <p class="project-details"><em>Tech Stack: React Native · MongoDB Realm · Atlas</em></p>
+                                    <p>Cross-device order management with syncing and offline support. Designed for businesses requiring seamless operation across multiple devices with automatic data synchronization and robust offline functionality.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-bar">
+                             <div class="content-section contact-info">
+                                <h3>Contact</h3>
+                                <hr/>
+                                <p><strong>Email:</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="publications-content" class="tab-pane">
+                         <div class="main-column">
+                            <div class="content-section">
+                                <h3>Publications & Reports</h3>
+                                <hr/>
+                                <ul class="section-listing publication-list">
+                                    <li>
+                                        <cite>
+                                            <span class="title">"RAG Chatbot — Embedding pipelines"</span>
+                                            <span class="authors">Dipesh Gupta</span>
+                                            <span class="details">Project Report, 2025</span>
+                                        </cite>
+                                        <p style="margin-top: 8px; color: #666; font-size: 14px;">Short report describing FAISS embeddings and retrieval strategies used in a student project.</p>
+                                    </li>
+                                    <li>
+                                        <cite>
+                                            <span class="title">"Real-time design patterns for low-budget apps"</span>
+                                            <span class="authors">Dipesh Gupta</span>
+                                            <span class="details">Technical Note, 2024</span>
+                                        </cite>
+                                        <p style="margin-top: 8px; color: #666; font-size: 14px;">Notes and patterns used for building responsive realtime features with minimal infra.</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h3>Teaching & Mentoring</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    <li>Coordinator — Appistry (App Development Club): organizing workshops, sessions, and hack nights</li>
+                                    <li>Mentor — Student projects: advising on RAG, React Native, and deployment topics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="side-bar">
+                             <div class="content-section links">
+                                <h3>Academic Links</h3>
+                                <hr/>
+                                <ul class="section-listing">
+                                    
+                                    <li><a href="https://github.com/" target="_blank">GitHub Profile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footerContent">
+            <div class="container">
+                <small>&copy; 2025 Dipesh Gupta. All Rights Reserved.</small>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
