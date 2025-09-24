@@ -4,21 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dipesh Gupta | Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Body Styles */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-red: #8c1515;
+            --secondary-red: #b1040e;
+            --light-red: #c83737;
+            --accent-red: rgba(140, 21, 21, 0.1);
+            --text-primary: #2c2c2c;
+            --text-secondary: #666;
+            --text-muted: #888;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f4f4f4;
+            --border-light: #e9ecef;
+            --border-medium: #dee2e6;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
             margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-tertiary);
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
         }
 
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         .wrapper {
@@ -31,11 +60,16 @@
             flex-grow: 1;
         }
 
-        /* Header Styles */
+        /* Enhanced Header */
         #header {
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
+            background: var(--bg-primary);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
         }
 
         #header .container {
@@ -45,168 +79,279 @@
         }
 
         #header .site-name a {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-red);
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        #header .site-name a:hover {
+            color: var(--secondary-red);
         }
 
         #header .main-nav ul {
-            margin: 0;
-            padding: 0;
+            display: flex;
             list-style: none;
-        }
-
-        #header .main-nav ul li {
-            display: inline-block;
-            margin-left: 20px;
+            gap: 8px;
         }
 
         #header .main-nav ul li a {
-            color: #555;
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 1rem;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
         }
 
         #header .main-nav ul li a:hover {
-            background-color: #f0f0f0;
+            background-color: var(--accent-red);
+            color: var(--primary-red);
         }
 
-
-        /* Masthead (Profile Banner) Styles */
+        /* Enhanced Masthead */
         #masthead {
-            background-color: #8c1515; /* Stanford Cardinal Red */
-            color: #fff;
-            padding: 40px 0;
-            border-bottom: 5px solid #b1040e;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: white;
+            padding: 120px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #masthead::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            opacity: 0.6;
         }
 
         #masthead .container {
             display: flex;
             align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        #masthead .image-holder {
+            position: relative;
+        }
+
+        #masthead .image-holder::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
+            border-radius: 50%;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
         }
 
         #masthead .image-holder img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            border: 5px solid #fff;
+            border: 6px solid rgba(255,255,255,0.9);
             object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        #masthead .image-holder img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25), 0 0 0 6px rgba(255,255,255,0.2);
         }
 
         #masthead .nameAndTitle {
-            margin-left: 40px;
+            margin-left: 60px;
         }
 
         #masthead h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 300;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         #masthead h2 {
-            margin: 5px 0 0;
-            font-size: 1.5rem;
-            font-weight: 300;
-            border-bottom: 1px solid #c83737;
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            opacity: 0.95;
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            padding-bottom: 12px;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         #masthead h3 {
-            margin: 10px 0 0;
             font-size: 1.2rem;
-            font-weight: 300;
+            font-weight: 500;
             opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Tabbed Layout Styles */
+        #masthead h3::before {
+            content: '📍';
+            font-size: 1rem;
+        }
+
+        /* Enhanced Tabbed Layout */
         #tabbedLayoutContainer {
-            width: 80%;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: -60px auto 40px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Hide Radio Buttons */
         #tabbedLayoutContainer input[type="radio"] {
             display: none;
         }
 
-        /* Style Labels as Tabs */
+        .tab-labels {
+            display: flex;
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
         #tabbedLayoutContainer label {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 1.1rem;
+            flex: 1;
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            background: #e9e9e9;
-            border: 1px solid #ccc;
-            border-bottom: none;
-            border-radius: 5px 5px 0 0;
-            margin-right: 5px;
+            background: var(--bg-secondary);
+            border: none;
+            text-align: center;
+            transition: var(--transition);
             position: relative;
-            top: 1px;
+            color: var(--text-secondary);
         }
 
         #tabbedLayoutContainer label:hover {
-            background: #ddd;
+            background: var(--accent-red);
+            color: var(--primary-red);
         }
 
-        /* Hide Tab Content by Default */
+        #tabbedLayoutContainer label::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-red);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        #tabbedLayoutContainer input[type="radio"]:checked + label {
+            background: var(--bg-primary);
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+
+        #tabbedLayoutContainer input[type="radio"]:checked + label::before {
+            transform: scaleX(1);
+        }
+
+        .tab-content-wrapper {
+            background: var(--bg-primary);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            min-height: 600px;
+        }
+
         .tab-pane {
             display: none;
-            background: transparent;
-            padding: 20px 0;
+            padding: 40px;
+            animation: fadeInUp 0.5s ease-out;
         }
 
-        /* Show Active Tab Content */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         #tab1:checked ~ .tab-content-wrapper #bio-content,
         #tab2:checked ~ .tab-content-wrapper #projects-content,
         #tab3:checked ~ .tab-content-wrapper #publications-content {
             display: flex;
-            gap: 30px;
+            gap: 40px;
         }
 
-        /* Style Active Tab */
-        #tabbedLayoutContainer input[type="radio"]:checked + label {
-            background: #fff;
-            border-color: #ccc;
-            border-bottom: 1px solid #fff;
-        }
-
-        /* Main Content and Sidebar Layout */
         .main-column {
-            flex: 3; /* Takes 3/4 of the space */
+            flex: 2.5;
         }
 
         .side-bar {
-            flex: 1; /* Takes 1/4 of the space */
+            flex: 1;
         }
 
+        /* Enhanced Content Sections */
         .content-section {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: var(--bg-primary);
+            padding: 32px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .content-section:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
         .content-section h3 {
-            margin-top: 0;
-            padding-bottom: 10px;
-            font-size: 1.4rem;
-            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .content-section h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            border-radius: 2px;
         }
 
         .content-section hr {
-            border: 0;
-            height: 1px;
-            background: #eee;
-            margin: -10px 0 20px;
+            display: none;
         }
 
-        /* Section-specific lists */
         .section-listing {
             list-style: none;
             padding: 0;
@@ -214,109 +359,310 @@
         }
 
         .section-listing li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .section-listing li:last-child {
             border-bottom: none;
         }
 
+        .section-listing li::before {
+            content: '▶';
+            color: var(--primary-red);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .section-listing li:hover {
+            background: var(--accent-red);
+            margin: 0 -16px;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+        }
+
         .section-listing a {
             text-decoration: none;
-            color: #007bff;
+            color: var(--primary-red);
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .section-listing a:hover {
-            text-decoration: underline;
+            color: var(--secondary-red);
         }
 
-        /* Project and Publication Specific Styles */
+        /* Enhanced Project Items */
         .project-item {
-            margin-bottom: 25px;
+            padding: 32px;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
+        }
+
+        .project-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
         .project-item:last-child {
             margin-bottom: 0;
         }
-        .project-details {
-            font-style: italic;
-            color: #666;
-            margin-top: -10px;
-        }
-        .publication-list cite {
-            display: block;
-        }
-        .publication-list .title {
-            font-weight: bold;
-            display: block;
-        }
-        .publication-list .authors {
-            display: block;
-            color: #555;
-            margin: 4px 0;
-        }
-        .publication-list .details {
-            font-style: italic;
-            color: #777;
+
+        .project-item h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* Contact Info Styles */
+        .project-item h4::before {
+            content: '🚀';
+            font-size: 1.2rem;
+        }
+
+        .project-details {
+            background: var(--accent-red);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: var(--primary-red);
+            font-weight: 500;
+            margin: -8px 0 16px;
+            border-left: 3px solid var(--primary-red);
+        }
+
+        /* Enhanced Publications */
+        .publication-list li {
+            background: var(--bg-secondary);
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-red);
+            transition: var(--transition);
+        }
+
+        .publication-list li:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .publication-list .title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .publication-list .authors {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .publication-list .details {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Contact Info */
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+            color: white !important;
+        }
+
+        .contact-info h3 {
+            color: white !important;
+        }
+
+        .contact-info h3::before {
+            background: white !important;
+        }
+
         .contact-info a {
-            color: #007bff;
+            color: white !important;
+            font-weight: 500;
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .contact-info a:hover {
-            text-decoration: underline;
+            color: rgba(255,255,255,0.8) !important;
         }
 
-        /* Footer Styles */
+        .contact-info p strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Enhanced Links Section */
+        .links .section-listing li::before {
+            content: '🔗';
+        }
+
+        /* Enhanced Footer */
         #footerContent {
-            background: #333;
-            color: #fff;
+            background: linear-gradient(135deg, var(--text-primary) 0%, #1a1a1a 100%);
+            color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            padding: 40px 0;
+            margin-top: 60px;
         }
 
-        /* Responsive Design */
+        /* Responsive Enhancements */
         @media(max-width: 992px) {
             .container, #tabbedLayoutContainer {
-                width: 95%;
+                padding: 0 20px;
             }
+            
+            #masthead {
+                padding: 60px 0;
+            }
+            
             #masthead .container {
                 flex-direction: column;
                 text-align: center;
             }
+            
             #masthead .nameAndTitle {
                 margin-left: 0;
-                margin-top: 20px;
+                margin-top: 32px;
+            }
+            
+            #masthead h1 {
+                font-size: 2.5rem;
+            }
+
+            .tab-pane {
+                padding: 24px;
+            }
+
+            #tab1:checked ~ .tab-content-wrapper #bio-content,
+            #tab2:checked ~ .tab-content-wrapper #projects-content,
+            #tab3:checked ~ .tab-content-wrapper #publications-content {
+                flex-direction: column;
+                gap: 24px;
             }
         }
 
         @media(max-width: 768px) {
             #header .container {
                 flex-direction: column;
+                gap: 16px;
             }
-            #header .main-nav {
-                margin-top: 10px;
-            }
-            .tab-content-wrapper > .tab-pane {
+
+            .tab-labels {
                 flex-direction: column;
             }
+
+            #tabbedLayoutContainer label {
+                border-radius: 0;
+            }
+
+            .content-section {
+                padding: 24px;
+            }
+
+            .project-item {
+                padding: 24px;
+            }
+
+            #masthead .image-holder img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-red);
         }
     </style>
 </head>
 <body>
-
     <div class="wrapper">
-       
+        <!-- Header Section -->
+        <header id="header">
+            <div class="container">
+                <div class="site-name">
+                    <a href="#" style="font-size: 2rem; font-weight: 700;">Portfolio</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#bio">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <main id="bodyContent">
             <section id="masthead">
                 <div class="container">
                     <div class="image-holder">
-                        <img src="me.jpg" alt="Dipesh Gupta">
+                        <img src="pfp1.jpg" alt="Dipesh Gupta">
                     </div>
                     <div class="nameAndTitle">
                         <h1>Dipesh Gupta</h1>
@@ -328,25 +674,26 @@
 
             <section id="tabbedLayoutContainer">
                 <input type="radio" name="tabs" id="tab1" checked>
-                <label for="tab1">Bio</label>
                 <input type="radio" name="tabs" id="tab2">
-                <label for="tab2">Projects</label>
                 <input type="radio" name="tabs" id="tab3">
-                <label for="tab3">Publications</label>
+                
+                <div class="tab-labels">
+                    <label for="tab1">📊 Bio</label>
+                    <label for="tab2">🚀 Projects</label>
+                    <label for="tab3">📚 Publications</label>
+                </div>
 
                 <div class="tab-content-wrapper">
                     <div id="bio-content" class="tab-pane">
                         <div class="main-column">
                             <div class="content-section">
-                                <h3>Bio</h3>
-                                <hr/>
+                                <h3>About Me</h3>
                                 <p>I build practical systems: realtime chatbots, RAG-enabled assistants, campus apps, and small cross-device sync tools. I enjoy applying ML and full-stack engineering to solve straightforward problems.</p>
                                 <p>As a Computer Science & Data Analytics student at IIT Patna, I focus on creating solutions that bridge the gap between theoretical concepts and real-world applications. My work spans from AI-powered legal assistants to mental health support systems, always with an emphasis on user-centered design and practical implementation.</p>
                             </div>
 
                             <div class="content-section">
                                 <h3>Research Interests</h3>
-                                <hr/>
                                 <ul class="section-listing">
                                     <li>Retrieval-Augmented Generation (RAG) systems and document embeddings</li>
                                     <li>Real-time collaboration & syncing for lightweight apps</li>
@@ -356,23 +703,20 @@
 
                             <div class="content-section">
                                 <h3>Skills & Technologies</h3>
-                                <hr/>
                                 <ul class="section-listing">
-                                    <li>Programming Languages: Python, Node.js, JavaScript</li>
-                                    <li>Frontend: React, React Native, EJS</li>
-                                    <li>Backend: FastAPI, Express</li>
-                                    <li>Databases & Tools: MongoDB, FAISS, Supabase</li>
+                                    <li><strong>Programming Languages:</strong> Python, Node.js, JavaScript</li>
+                                    <li><strong>Frontend:</strong> React, React Native, EJS</li>
+                                    <li><strong>Backend:</strong> FastAPI, Express</li>
+                                    <li><strong>Databases & Tools:</strong> MongoDB, FAISS, Supabase</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
                                 <h3>Awards & Activities</h3>
-                                <hr/>
                                 <ul class="section-listing">
-                                    <li>Coordinator — Appistry (App Development Club)</li>
-                                    <li>3rd Place — CodeQuest Coding Competition</li>
-                                    
-                                    <li>Mentor — Student projects: advising on RAG, React Native, and deployment topics</li>
+                                    <li><strong>Coordinator</strong> — Appistry (App Development Club)</li>
+                                    <li><strong>3rd Place</strong> — CodeQuest Coding Competition</li>
+                                    <li><strong>Mentor</strong> — Student projects: advising on RAG, React Native, and deployment topics</li>
                                 </ul>
                             </div>
                         </div>
@@ -380,13 +724,11 @@
                         <div class="side-bar">
                             <div class="content-section contact-info">
                                 <h3>Contact</h3>
-                                <hr/>
-                                <p><strong>Email:</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
+                                <p><strong>Email</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
                             </div>
                             
                             <div class="content-section links">
                                 <h3>Links</h3>
-                                <hr/>
                                 <ul class="section-listing">
                                     <li><a href="https://drive.google.com/file/d/1wFZxxkjTF9tqO8Rc2tVKcDGmcan_kmjb/view?usp=sharing" target="_blank">Download Resume</a></li>
                                     <li><a href="https://www.linkedin.com/in/dipesh-gupta-2960452b2/" target="_blank">LinkedIn Profile</a></li>
@@ -399,39 +741,36 @@
                     <div id="projects-content" class="tab-pane">
                         <div class="main-column">
                             <div class="content-section">
-                                <h3>Selected Projects</h3>
-                                <hr/>
+                                <h3>Featured Projects</h3>
                                 <div class="project-item">
                                     <h4>AI Legal Assistant</h4>
-                                    <p class="project-details"><em>Tech Stack: FastAPI backend · Groq SDK · Supabase chat history · PDF drafting</em></p>
+                                    <div class="project-details">FastAPI backend · Groq SDK · Supabase chat history · PDF drafting</div>
                                     <p>Forms-driven mobile app + backend that drafts legal filings as downloadable PDFs. The system provides an intuitive interface for users to input case details and automatically generates properly formatted legal documents, streamlining the legal documentation process.</p>
                                 </div>
                                 <div class="project-item">
                                     <h4>Mental Health Chatbot (Realtime)</h4>
-                                    <p class="project-details"><em>Tech Stack: Node.js · Socket.IO · EJS · MongoDB</em></p>
+                                    <div class="project-details">Node.js · Socket.IO · EJS · MongoDB</div>
                                     <p>A supportive conversational bot storing sessions and offering resources. Built with real-time communication capabilities to provide immediate support and maintain conversation history for continuity in mental health assistance.</p>
                                 </div>
                                 <div class="project-item">
                                     <h4>POS App with Sync</h4>
-                                    <p class="project-details"><em>Tech Stack: React Native · MongoDB Realm · Atlas</em></p>
+                                    <div class="project-details">React Native · MongoDB Realm · Atlas</div>
                                     <p>Cross-device order management with syncing and offline support. Designed for businesses requiring seamless operation across multiple devices with automatic data synchronization and robust offline functionality.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="side-bar">
-                             <div class="content-section contact-info">
-                                <h3>Contact</h3>
-                                <hr/>
-                                <p><strong>Email:</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
+                            <div class="content-section contact-info">
+                                <h3>Get In Touch</h3>
+                                <p><strong>Email</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
 
                     <div id="publications-content" class="tab-pane">
-                         <div class="main-column">
+                        <div class="main-column">
                             <div class="content-section">
                                 <h3>Publications & Reports</h3>
-                                <hr/>
                                 <ul class="section-listing publication-list">
                                     <li>
                                         <cite>
@@ -439,7 +778,7 @@
                                             <span class="authors">Dipesh Gupta</span>
                                             <span class="details">Project Report, 2025</span>
                                         </cite>
-                                        <p style="margin-top: 8px; color: #666; font-size: 14px;">Short report describing FAISS embeddings and retrieval strategies used in a student project.</p>
+                                        <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">Short report describing FAISS embeddings and retrieval strategies used in a student project.</p>
                                     </li>
                                     <li>
                                         <cite>
@@ -447,27 +786,24 @@
                                             <span class="authors">Dipesh Gupta</span>
                                             <span class="details">Technical Note, 2024</span>
                                         </cite>
-                                        <p style="margin-top: 8px; color: #666; font-size: 14px;">Notes and patterns used for building responsive realtime features with minimal infra.</p>
+                                        <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">Notes and patterns used for building responsive realtime features with minimal infra.</p>
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
                                 <h3>Teaching & Mentoring</h3>
-                                <hr/>
                                 <ul class="section-listing">
-                                    <li>Coordinator — Appistry (App Development Club): organizing workshops, sessions, and hack nights</li>
-                                    <li>Mentor — Student projects: advising on RAG, React Native, and deployment topics</li>
+                                    <li><strong>Coordinator</strong> — Appistry (App Development Club): organizing workshops, sessions, and hack nights</li>
+                                    <li><strong>Mentor</strong> — Student projects: advising on RAG, React Native, and deployment topics</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="side-bar">
-                             <div class="content-section links">
+                            <div class="content-section links">
                                 <h3>Academic Links</h3>
-                                <hr/>
                                 <ul class="section-listing">
-                                    
-                                    <li><a href="https://github.com/" target="_blank">GitHub Profile</a></li>
+                                    <li><a href="https://github.com/dipeshgupta07" target="_blank">GitHub Profile</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -483,5 +819,29 @@
         </footer>
     </div>
 
+    <script>
+        // Add smooth scroll behavior and fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in class to content sections with delay
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('fade-in');
+                }, index * 100);
+            });
+        });
+
+        // Add hover effects for project items
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) scale(1.01)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
