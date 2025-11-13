@@ -3,33 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipesh Gupta | Portfolio</title>
+    <title>Dipesh Gupta | Choose Your Experience</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for consistent theming */
-        :root {
-            --primary-red: #8c1515;
-            --secondary-red: #b1040e;
-            --light-red: #c83737;
-            --accent-red: rgba(140, 21, 21, 0.1);
-            --text-primary: #2c2c2c;
-            --text-secondary: #666;
-            --text-muted: #888;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --bg-tertiary: #f4f4f4;
-            --border-light: #e9ecef;
-            --border-medium: #dee2e6;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -37,811 +14,866 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-tertiary);
-            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+            font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #141414;
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        /* Netflix Logo */
+        .netflix-logo {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #E50914;
+            z-index: 1000;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .wrapper {
+        .netflix-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Home Page */
+        .home-page {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex-grow: 1;
-        }
-
-        /* Enhanced Header */
-        #header {
-            background: var(--bg-primary);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
-
-        #header .container {
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-
-        #header .site-name a {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-red);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        #header .site-name a:hover {
-            color: var(--secondary-red);
-        }
-
-        #header .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 8px;
-        }
-
-        #header .main-nav ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-        }
-
-        #header .main-nav ul li a:hover {
-            background-color: var(--accent-red);
-            color: var(--primary-red);
-        }
-
-        /* Enhanced Masthead */
-        #masthead {
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
-            color: white;
-            padding: 120px 0 140px;
-            position: relative;
-            overflow: hidden;
+            background-attachment: fixed;
         }
 
-        #masthead::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
-            opacity: 0.6;
-        }
-
-        #masthead .container {
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        #masthead .image-holder {
-            position: relative;
-        }
-
-        #masthead .image-holder::before {
-            content: '';
-            position: absolute;
-            top: -12px;
-            left: -12px;
-            right: -12px;
-            bottom: -12px;
-            background: linear-gradient(45deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
-            border-radius: 50%;
-            z-index: -1;
-            box-shadow: 0 0 30px rgba(255,255,255,0.3);
-        }
-
-        #masthead .image-holder img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 6px solid rgba(255,255,255,0.9);
-            object-fit: cover;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,255,255,0.1);
-            transition: var(--transition);
-        }
-
-        #masthead .image-holder img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25), 0 0 0 6px rgba(255,255,255,0.2);
-        }
-
-        #masthead .nameAndTitle {
-            margin-left: 60px;
-        }
-
-        #masthead h1 {
+        .home-title {
             font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
         }
 
-        #masthead h2 {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 12px;
-            opacity: 0.95;
-            border-bottom: 2px solid rgba(255,255,255,0.4);
-            padding-bottom: 12px;
-            display: inline-block;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        #masthead h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
+        .home-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 60px;
+            text-align: center;
             opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .profiles-container {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            gap: 60px;
+            margin-bottom: 40px;
         }
 
-        #masthead h3::before {
-            content: '📍';
-            font-size: 1rem;
+        .profile-card {
+            width: 280px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        /* Enhanced Tabbed Layout */
-        #tabbedLayoutContainer {
-            max-width: 1200px;
-            margin: -60px auto 40px;
-            padding: 0 24px;
+        .profile-card:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 8px;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .profile-card:hover .profile-avatar {
+            border-color: #E50914;
+            box-shadow: 0 15px 50px rgba(229, 9, 20, 0.5);
+        }
+
+        .profile-name {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #808080;
+            transition: color 0.3s ease;
+        }
+
+        .profile-card:hover .profile-name {
+            color: #fff;
+        }
+
+        /* Web Dev Page */
+        .webdev-page, .photography-page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .webdev-page.active, .photography-page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 85vh;
             position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 60px 100px;
+            background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,0.7) 70%, #141414 100%),
+                        linear-gradient(90deg, rgba(20,20,20,0.8) 0%, rgba(20,20,20,0.4) 50%, rgba(20,20,20,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
             z-index: 10;
         }
 
-        #tabbedLayoutContainer input[type="radio"] {
-            display: none;
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
+            line-height: 1.1;
         }
 
-        .tab-labels {
+        .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
             display: flex;
-            background: var(--bg-primary);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
+            gap: 15px;
         }
 
-        #tabbedLayoutContainer label {
-            flex: 1;
-            padding: 20px 24px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            background: var(--bg-secondary);
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 600;
             border: none;
-            text-align: center;
-            transition: var(--transition);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-play {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-play:hover {
+            background: rgba(255,255,255,0.75);
+        }
+
+        .btn-info {
+            background: rgba(109,109,110,0.7);
+            color: #fff;
+        }
+
+        .btn-info:hover {
+            background: rgba(109,109,110,0.4);
+        }
+
+        /* Content Rows */
+        .content-section {
+            padding: 40px 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #E5E5E5;
+        }
+
+        .cards-row {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: #E50914 #141414;
+        }
+
+        .cards-row::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .cards-row::-webkit-scrollbar-track {
+            background: #141414;
+        }
+
+        .cards-row::-webkit-scrollbar-thumb {
+            background: #E50914;
+            border-radius: 4px;
+        }
+
+        .card {
+            min-width: 300px;
+            background: #2F2F2F;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
-            color: var(--text-secondary);
         }
 
-        #tabbedLayoutContainer label:hover {
-            background: var(--accent-red);
-            color: var(--primary-red);
+        .card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
         }
 
-        #tabbedLayoutContainer label::before {
-            content: '';
+        .card-image {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E50914 0%, #8B0000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.3);
+        }
+        .card-image img{
+            width: 100%;
+            height: 170px;
+
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-tech {
+            font-size: 0.9rem;
+            color: #46D369;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #D2D2D2;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-chip {
+            background: rgba(229, 9, 20, 0.2);
+            border: 1px solid #E50914;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-chip:hover {
+            background: rgba(229, 9, 20, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Photography Page */
+        .photo-hero {
+            height: 85vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1502982899975-6c0a4e7cd0d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-hero-content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .photo-hero-title {
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 10px rgba(0,0,0,0.9);
+        }
+
+        .photo-hero-subtitle {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            padding: 60px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(229, 9, 20, 0.5);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E50914 0%, #8B0000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+           
+        }
+
+        .photo-placeholder i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+        }
+        .photo-placeholder img{
+            width: 100%;
+        }
+
+        .photo-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: var(--primary-red);
-            transform: scaleX(0);
-            transition: var(--transition);
+            padding: 30px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
         }
 
-        #tabbedLayoutContainer input[type="radio"]:checked + label {
-            background: var(--bg-primary);
-            color: var(--primary-red);
-            font-weight: 600;
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
         }
 
-        #tabbedLayoutContainer input[type="radio"]:checked + label::before {
-            transform: scaleX(1);
+        .photo-caption-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
 
-        .tab-content-wrapper {
-            background: var(--bg-primary);
-            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            min-height: 600px;
-        }
-
-        .tab-pane {
-            display: none;
-            padding: 40px;
-            animation: fadeInUp 0.5s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #tab1:checked ~ .tab-content-wrapper #bio-content,
-        #tab2:checked ~ .tab-content-wrapper #projects-content,
-        #tab3:checked ~ .tab-content-wrapper #publications-content {
-            display: flex;
-            gap: 40px;
-        }
-
-        .main-column {
-            flex: 2.5;
-        }
-
-        .side-bar {
-            flex: 1;
-        }
-
-        /* Enhanced Content Sections */
-        .content-section {
-            background: var(--bg-primary);
-            padding: 32px;
-            margin-bottom: 24px;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .content-section:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .content-section h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-red);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .content-section h3::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
-            border-radius: 2px;
-        }
-
-        .content-section hr {
-            display: none;
-        }
-
-        .section-listing {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .section-listing li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-light);
-            transition: var(--transition);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .section-listing li:last-child {
-            border-bottom: none;
-        }
-
-        .section-listing li::before {
-            content: '▶';
-            color: var(--primary-red);
-            font-size: 0.8rem;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-
-        .section-listing li:hover {
-            background: var(--accent-red);
-            margin: 0 -16px;
-            padding: 16px;
-            border-radius: var(--radius-sm);
-        }
-
-        .section-listing a {
-            text-decoration: none;
-            color: var(--primary-red);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .section-listing a:hover {
-            color: var(--secondary-red);
-        }
-
-        /* Enhanced Project Items */
-        .project-item {
-            padding: 32px;
-            margin-bottom: 32px;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
-        }
-
-        .project-item:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-
-        .project-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .project-item h4 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--primary-red);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .project-item h4::before {
-            content: '🚀';
-            font-size: 1.2rem;
-        }
-
-        .project-details {
-            background: var(--accent-red);
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            color: var(--primary-red);
-            font-weight: 500;
-            margin: -8px 0 16px;
-            border-left: 3px solid var(--primary-red);
-        }
-
-        /* Enhanced Publications */
-        .publication-list li {
-            background: var(--bg-secondary);
-            padding: 24px;
-            margin-bottom: 20px;
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--primary-red);
-            transition: var(--transition);
-        }
-
-        .publication-list li:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateX(4px);
-        }
-
-        .publication-list .title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--primary-red);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .publication-list .authors {
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .publication-list .details {
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Enhanced Contact Info */
-        .contact-info {
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
-            color: white !important;
-        }
-
-        .contact-info h3 {
-            color: white !important;
-        }
-
-        .contact-info h3::before {
-            background: white !important;
-        }
-
-        .contact-info a {
-            color: white !important;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-info a:hover {
-            color: rgba(255,255,255,0.8) !important;
-        }
-
-        .contact-info p strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+        .photo-caption-text {
+            font-size: 1rem;
             opacity: 0.9;
         }
 
-        /* Enhanced Links Section */
-        .links .section-listing li::before {
-            content: '🔗';
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 25px;
+            right: 40px;
+            background: rgba(42,42,42,0.8);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Enhanced Footer */
-        #footerContent {
-            background: linear-gradient(135deg, var(--text-primary) 0%, #1a1a1a 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
+        .back-button:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
         }
 
-        /* Responsive Enhancements */
-        @media(max-width: 992px) {
-            .container, #tabbedLayoutContainer {
-                padding: 0 20px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .netflix-logo {
+                left: 20px;
+                font-size: 2rem;
             }
-            
-            #masthead {
-                padding: 60px 0;
+
+            .back-button {
+                right: 20px;
             }
-            
-            #masthead .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            #masthead .nameAndTitle {
-                margin-left: 0;
-                margin-top: 32px;
-            }
-            
-            #masthead h1 {
+
+            .home-title {
                 font-size: 2.5rem;
             }
 
-            .tab-pane {
-                padding: 24px;
+            .home-subtitle {
+                font-size: 1.3rem;
             }
 
-            #tab1:checked ~ .tab-content-wrapper #bio-content,
-            #tab2:checked ~ .tab-content-wrapper #projects-content,
-            #tab3:checked ~ .tab-content-wrapper #publications-content {
+            .profiles-container {
                 flex-direction: column;
-                gap: 24px;
-            }
-        }
-
-        @media(max-width: 768px) {
-            #header .container {
-                flex-direction: column;
-                gap: 16px;
+                gap: 40px;
             }
 
-            .tab-labels {
-                flex-direction: column;
+            .profile-card {
+                width: 200px;
             }
 
-            #tabbedLayoutContainer label {
-                border-radius: 0;
+            .profile-avatar {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-section {
+                padding: 0 30px 60px;
+                height: 70vh;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
             }
 
             .content-section {
-                padding: 24px;
+                padding: 30px 20px;
             }
 
-            .project-item {
-                padding: 24px;
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
             }
 
-            #masthead .image-holder img {
-                width: 150px;
-                height: 150px;
+            .photo-hero-title {
+                font-size: 3rem;
             }
-        }
-
-        /* Loading Animation */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-tertiary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-red);
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <!-- Header Section -->
-        <header id="header">
-            <div class="container">
-                <div class="site-name">
-                    <a href="#" style="font-size: 2rem; font-weight: 700;">Portfolio</a>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#bio">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#publications">Publications</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <!-- Netflix Logo -->
+    <div class="netflix-logo" onclick="goHome()">DIPESH</div>
+
+    <!-- Home Page -->
+    <div class="home-page" id="homePage">
+        <h1 class="home-title">Who's Exploring?</h1>
+        <p class="home-subtitle">Choose Your Experience</p>
+        
+        <div class="profiles-container">
+            <div class="profile-card" onclick="showWebDev()">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Web Developer" class="profile-avatar">
+                <h2 class="profile-name">Web Developer</h2>
             </div>
-        </header>
-
-        <main id="bodyContent">
-            <section id="masthead">
-                <div class="container">
-                    <div class="image-holder">
-                        <img src="pfp1.jpg" alt="Dipesh Gupta">
-                    </div>
-                    <div class="nameAndTitle">
-                        <h1>Dipesh Gupta</h1>
-                        <h2>B.S. Computer Science & Data Analytics — Student · Appistry Coordinator</h2>
-                        <h3>IIT Patna</h3>
-                    </div>
-                </div>
-            </section>
-
-            <section id="tabbedLayoutContainer">
-                <input type="radio" name="tabs" id="tab1" checked>
-                <input type="radio" name="tabs" id="tab2">
-                <input type="radio" name="tabs" id="tab3">
-                
-                <div class="tab-labels">
-                    <label for="tab1">📊 Bio</label>
-                    <label for="tab2">🚀 Projects</label>
-                    <label for="tab3">📚 Publications</label>
-                </div>
-
-                <div class="tab-content-wrapper">
-                    <div id="bio-content" class="tab-pane">
-                        <div class="main-column">
-                            <div class="content-section">
-                                <h3>About Me</h3>
-                                <p>I build practical systems: realtime chatbots, RAG-enabled assistants, campus apps, and small cross-device sync tools. I enjoy applying ML and full-stack engineering to solve straightforward problems.</p>
-                                <p>As a Computer Science & Data Analytics student at IIT Patna, I focus on creating solutions that bridge the gap between theoretical concepts and real-world applications. My work spans from AI-powered legal assistants to mental health support systems, always with an emphasis on user-centered design and practical implementation.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h3>Research Interests</h3>
-                                <ul class="section-listing">
-                                    <li>Retrieval-Augmented Generation (RAG) systems and document embeddings</li>
-                                    <li>Real-time collaboration & syncing for lightweight apps</li>
-                                    <li>Human-centered AI for support & productivity</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h3>Skills & Technologies</h3>
-                                <ul class="section-listing">
-                                    <li><strong>Programming Languages:</strong> Python, Node.js, JavaScript</li>
-                                    <li><strong>Frontend:</strong> React, React Native, EJS</li>
-                                    <li><strong>Backend:</strong> FastAPI, Express</li>
-                                    <li><strong>Databases & Tools:</strong> MongoDB, FAISS, Supabase</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h3>Awards & Activities</h3>
-                                <ul class="section-listing">
-                                    <li><strong>Coordinator</strong> — Appistry (App Development Club)</li>
-                                    <li><strong>3rd Place</strong> — CodeQuest Coding Competition</li>
-                                    <li><strong>Mentor</strong> — Student projects: advising on RAG, React Native, and deployment topics</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="side-bar">
-                            <div class="content-section contact-info">
-                                <h3>Contact</h3>
-                                <p><strong>Email</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
-                            </div>
-                            
-                            <div class="content-section links">
-                                <h3>Links</h3>
-                                <ul class="section-listing">
-                                    <li><a href="https://drive.google.com/file/d/1QdPgWFUmwexz65EQoyhjz5NbfSwI7Xgo/view?usp=drivesdk" target="_blank">Download Resume</a></li>
-                                    <li><a href="https://www.linkedin.com/in/dipesh-gupta-2960452b2/" target="_blank">LinkedIn Profile</a></li>
-                                    <li><a href="https://github.com/dipeshgupta07" target="_blank">GitHub Profile</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="projects-content" class="tab-pane">
-                        <div class="main-column">
-                            <div class="content-section">
-                                <h3>Featured Projects</h3>
-                                <div class="project-item">
-                                    <h4>AI Legal Assistant</h4>
-                                    <div class="project-details">FastAPI backend · Groq SDK · Supabase chat history · PDF drafting</div>
-                                    <p>Forms-driven mobile app + backend that drafts legal filings as downloadable PDFs. The system provides an intuitive interface for users to input case details and automatically generates properly formatted legal documents, streamlining the legal documentation process.</p>
-                                </div>
-                                <div class="project-item">
-                                    <h4>Mental Health Chatbot (Realtime)</h4>
-                                    <div class="project-details">Node.js · Socket.IO · EJS · MongoDB</div>
-                                    <p>A supportive conversational bot storing sessions and offering resources. Built with real-time communication capabilities to provide immediate support and maintain conversation history for continuity in mental health assistance.</p>
-                                </div>
-                                <div class="project-item">
-                                    <h4>POS App with Sync</h4>
-                                    <div class="project-details">React Native · MongoDB Realm · Atlas</div>
-                                    <p>Cross-device order management with syncing and offline support. Designed for businesses requiring seamless operation across multiple devices with automatic data synchronization and robust offline functionality.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side-bar">
-                            <div class="content-section contact-info">
-                                <h3>Get In Touch</h3>
-                                <p><strong>Email</strong><br><a href="mailto:thedipeshg07@gmail.com">thedipeshg07@gmail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="publications-content" class="tab-pane">
-                        <div class="main-column">
-                            <div class="content-section">
-                                <h3>Publications & Reports</h3>
-                                <ul class="section-listing publication-list">
-                                    <li>
-                                        <cite>
-                                            <span class="title">"RAG Chatbot — Embedding pipelines"</span>
-                                            <span class="authors">Dipesh Gupta</span>
-                                            <span class="details">Project Report, 2025</span>
-                                        </cite>
-                                        <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">Short report describing FAISS embeddings and retrieval strategies used in a student project.</p>
-                                    </li>
-                                    <li>
-                                        <cite>
-                                            <span class="title">"Real-time design patterns for low-budget apps"</span>
-                                            <span class="authors">Dipesh Gupta</span>
-                                            <span class="details">Technical Note, 2024</span>
-                                        </cite>
-                                        <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9rem;">Notes and patterns used for building responsive realtime features with minimal infra.</p>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h3>Teaching & Mentoring</h3>
-                                <ul class="section-listing">
-                                    <li><strong>Coordinator</strong> — Appistry (App Development Club): organizing workshops, sessions, and hack nights</li>
-                                    <li><strong>Mentor</strong> — Student projects: advising on RAG, React Native, and deployment topics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="side-bar">
-                            <div class="content-section links">
-                                <h3>Academic Links</h3>
-                                <ul class="section-listing">
-                                    <li><a href="https://github.com/dipeshgupta07" target="_blank">GitHub Profile</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer id="footerContent">
-            <div class="container">
-                <small>&copy; 2025 Dipesh Gupta. All Rights Reserved.</small>
+            
+            <div class="profile-card" onclick="showPhotography()">
+                <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Photography" class="profile-avatar">
+                <h2 class="profile-name">Photography</h2>
             </div>
-        </footer>
+        </div>
+    </div>
+
+    <!-- Web Dev Page -->
+    <div class="webdev-page" id="webdevPage">
+        <button class="back-button" onclick="goHome()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Dipesh Gupta</h1>
+                <h2 class="hero-subtitle">Full-Stack Developer & AI Engineer</h2>
+                <p class="hero-description">Building practical systems: realtime chatbots, RAG-enabled assistants, campus apps, and cross-device sync tools. Computer Science & Data Analytics @ IIT Patna</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-play" onclick="window.location.href='mailto:thedipeshg07@gmail.com'">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </button>
+                    <button class="btn btn-info" onclick="window.open('https://drive.google.com/file/d/1QdPgWFUmwexz65EQoyhjz5NbfSwI7Xgo/view?usp=drivesdk', '_blank')">
+                        <i class="fas fa-download"></i> Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="content-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="cards-row">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1762330470070-249e7c23c8c0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">AI Legal Assistant</h3>
+                        <p class="card-tech">FastAPI • Groq SDK • Supabase • PDF Generation</p>
+                        <p class="card-description">Forms-driven mobile app that drafts legal filings as downloadable PDFs with automatic formatting.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1683865775849-b958669dca26?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Mental Health Chatbot</h3>
+                        <p class="card-tech">Node.js • Socket.IO • MongoDB • Real-time</p>
+                        <p class="card-description">Supportive conversational bot with real-time communication and session history for mental health assistance.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1664474426510-e60b4b8ad43e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9pbnQlMjBvZiUyMHNhbGV8ZW58MHx8MHx8fDA%3D" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">POS App with Sync</h3>
+                        <p class="card-tech">React Native • MongoDB Realm • Atlas</p>
+                        <p class="card-description">Cross-device order management with automatic syncing and robust offline functionality.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">RAG Chatbot</h3>
+                        <p class="card-tech">FAISS • Vector Embeddings • Retrieval</p>
+                        <p class="card-description">Document-aware assistant using FAISS embeddings and advanced retrieval strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills & Technologies -->
+        <div class="content-section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-chip"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-chip"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill-chip"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="skill-chip"><i class="fab fa-react"></i> React</div>
+                <div class="skill-chip"><i class="fab fa-react"></i> React Native</div>
+                <div class="skill-chip"><i class="fas fa-code"></i> FastAPI</div>
+                <div class="skill-chip"><i class="fas fa-code"></i> Express</div>
+                <div class="skill-chip"><i class="fas fa-database"></i> MongoDB</div>
+                <div class="skill-chip"><i class="fas fa-vector-square"></i> FAISS</div>
+                <div class="skill-chip"><i class="fas fa-database"></i> Supabase</div>
+                <div class="skill-chip"><i class="fas fa-bolt"></i> Socket.IO</div>
+                <div class="skill-chip"><i class="fas fa-file-code"></i> EJS</div>
+            </div>
+        </div>
+
+        <!-- Research & Interests -->
+       
+        <!-- Awards & Leadership -->
+        <div class="content-section">
+            <h2 class="section-title">Awards & Leadership</h2>
+            <div class="cards-row">
+                <div class="card">
+                    <div class="card-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Appistry Coordinator</h3>
+                        <p class="card-tech">App Development Club</p>
+                        <p class="card-description">Leading workshops, sessions, and hack nights for the campus app development community.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">3rd Place - CodeQuest</h3>
+                        <p class="card-tech">Coding Competition</p>
+                        <p class="card-description">Secured third position in competitive coding competition among peers.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Participated in Hack N tech Hackathon by IIT Patna</h3>
+                        <p class="card-tech">UI Development</p>
+                        <p class="card-description">Worked on RAG systems, API development, and deployment strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connect -->
+        <div class="content-section" style="padding-bottom: 80px;">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="cards-row">
+                <div class="card" onclick="window.open('https://github.com/dipeshgupta07', '_blank')" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">GitHub</h3>
+                        <p class="card-description">Check out my repositories and contributions</p>
+                    </div>
+                </div>
+
+                <div class="card" onclick="window.open('https://www.linkedin.com/in/dipesh-gupta-2960452b2/', '_blank')" style="cursor: pointer;">
+                    <div class="card-image">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">LinkedIn</h3>
+                        <p class="card-description">Connect with me professionally</p>
+                    </div>
+                </div>
+
+                <div class="card" onclick="window.location.href='mailto:thedipeshg07@gmail.com'">
+                    <div class="card-image">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Email</h3>
+                        <p class="card-description">thedipeshg07@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photography Page -->
+    <div class="photography-page" id="photographyPage">
+        <button class="back-button" onclick="goHome()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+
+        <!-- Photo Hero -->
+        <div class="photo-hero">
+            <div class="photo-hero-content">
+                <h1 class="photo-hero-title">Through My Lens</h1>
+                <p class="photo-hero-subtitle">Capturing Moments, Creating Memories</p>
+            </div>
+        </div>
+
+        
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/dipeshgupta07/Portfolio-/refs/heads/main/Photos/WhatsApp%20Image%202025-11-13%20at%2020.29.58_5957cf66.jpg" alt="">
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Old Haweli</h3>
+                    <p class="photo-caption-text">Classy house just living its long life</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/dipeshgupta07/Portfolio-/refs/heads/main/Photos/WhatsApp%20Image%202025-11-13%20at%2020.30.07_bdf1157f.jpg" alt="">
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Nature's Beauty</h3>
+                    <p class="photo-caption-text">Water Reflecting the Beauty of Night</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/dipeshgupta07/Portfolio-/refs/heads/main/Photos/WhatsApp%20Image%202025-11-13%20at%2020.32.28_bd6389c1.jpg" alt="">
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Beauty of Vindhyachal</h3>
+                    <p class="photo-caption-text">The beautiful river passing through rocks</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/dipeshgupta07/Portfolio-/refs/heads/main/Photos/WhatsApp%20Image%202025-11-13%20at%2020.32.30_c97fb7ed.jpg" alt="">
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Vintage Buildings of Kolkata</h3>
+                    <p class="photo-caption-text">.....</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/dipeshgupta07/Portfolio-/refs/heads/main/Photos/WhatsApp%20Image%202025-11-13%20at%2020.32.29_27a1c1ab.jpg" alt="">
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Speedy Lightening Roads</h3>
+                    <p class="photo-caption-text">People Chasing their dreams..</p>
+                </div>
+            </div>
+
+            
+            
+
+        <!-- Photo Gallery -->
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Sunset Views</h3>
+                    <p class="photo-caption-text">Add your photo and caption here</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Abstract Art</h3>
+                    <p class="photo-caption-text">Add your photo and caption here</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Night Photography</h3>
+                    <p class="photo-caption-text">Add your photo and caption here</p>
+                </div>
+            </div>
+
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="photo-caption">
+                    <h3 class="photo-caption-title">Wildlife</h3>
+                    <p class="photo-caption-text">Add your photo and caption here</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Add smooth scroll behavior and fade-in animations
+        function goHome() {
+            document.getElementById('homePage').style.display = 'flex';
+            document.getElementById('webdevPage').classList.remove('active');
+            document.getElementById('photographyPage').classList.remove('active');
+        }
+
+        function showWebDev() {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('webdevPage').classList.add('active');
+        }
+
+        function showPhotography() {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('photographyPage').classList.add('active');
+        }
+
+        // Add parallax effect to hero sections
+        window.addEventListener('scroll', function() {
+            const heroSection = document.querySelector('.hero-section');
+            const photoHero = document.querySelector('.photo-hero');
+            
+            if (heroSection) {
+                const scrolled = window.pageYOffset;
+                heroSection.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+            
+            if (photoHero) {
+                const scrolled = window.pageYOffset;
+                photoHero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+
+        // Smooth scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and content sections
         document.addEventListener('DOMContentLoaded', function() {
-            // Add fade-in class to content sections with delay
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('fade-in');
-                }, index * 100);
+            const elements = document.querySelectorAll('.card, .content-section, .photo-item');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
             });
         });
 
-        // Add hover effects for project items
-        const projectItems = document.querySelectorAll('.project-item');
-        projectItems.forEach(item => {
+        // Add hover sound effect simulation (visual feedback)
+        document.querySelectorAll('.card, .skill-chip').forEach(item => {
             item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-4px) scale(1.01)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+                this.style.transition = 'all 0.2s ease';
             });
         });
     </script>
 </body>
 </html>
+           
